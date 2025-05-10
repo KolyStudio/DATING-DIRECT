@@ -1,7 +1,4 @@
 {
-  "engines": {
-    "node": "20.x"
-  },
 
   "name": "site2",
   "version": "0.0.1",
@@ -33,4 +30,7 @@
     "lucide-svelte": "^0.462.0",
     "node": "^24.0.1"
   },
+   "engines": {
+    "node": "20.x"
+  }
 }
