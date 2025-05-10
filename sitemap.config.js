@@ -1,16 +1,35 @@
 import fs from "fs";
-import { readFileSync } from "fs";
-import { fileURLToPath } from "url";
-import { dirname, resolve } from "path";
 import { profiles } from "./src/lib/profiles.js";
 
-// Obtenir le chemin du répertoire actuel
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-// Charger le fichier JSON manuellement
-const configPath = resolve(__dirname, "./src/config.json");
-const config = JSON.parse(readFileSync(configPath, "utf-8"));
+// Configuration directe pour éviter les problèmes de chargement de fichiers
+const config = {
+  "siteName": "eloiseprofil.com",
+  "pseudos": [
+    "eloisevalota", "eloisemeruka", "eloisepiraya", "eloisendira", "eloisetamira",
+    "eloisefanyra", "eloisezuloka", "eloisekorimi", "eloisevarlena", "eloisekideya",
+    "eloisedereva", "eloisevynara", "eloisebotaya", "eloiserynta", "eloisebomika",
+    "eloisemirata", "eloisepirava", "eloisemykora", "eloisenurila", "eloisevalimo",
+    "eloisefirana", "eloisekuvana", "eloisepamira", "eloisejarita", "eloiseykoma",
+    "eloisequarila", "eloisedazemi", "eloisenamiro", "eloiselavoto", "eloisefytona",
+    "eloiseharima", "eloisekamiro", "eloiselinura", "eloisefaruna", "eloiselureta",
+    "eloisemeruva", "eloisejurena", "eloisetunora", "eloiserymata", "eloisekimava",
+    "eloisenorido", "eloisepatoda", "eloisezanita", "eloisefolina", "eloisekerula",
+    "eloisemyzano", "eloisehaliza", "eloiseburata", "eloiseverono", "eloisepokira",
+    "eloiseranuma", "eloisefadira", "eloisefenata", "eloisevolira", "eloisemukata",
+    "eloisevarota", "eloisegirema", "eloisenivaka", "eloisefradia", "eloisejukana",
+    "eloiselanuma", "eloisepazira", "eloisekamina", "eloisebureta", "eloisegimara",
+    "eloisekufara", "eloisequlima", "eloisewiruna", "eloisemazyta", "eloisefilova",
+    "eloisehukora", "eloiseparuma", "eloiselorina", "eloiselobaga", "eloisepukala",
+    "eloisezytoma", "eloisebilara", "eloisemunava", "eloiserabita", "eloiseyuloma",
+    "eloisefatumas", "eloisemyraka", "eloisekoriva", "eloisepilyta", "eloisevamyta",
+    "eloisekozeny", "eloisefoneta", "eloisekavita", "eloiseremiva", "eloisehutoma",
+    "eloisewizana", "eloiselikuma", "eloisepinora", "eloisevysudo", "eloiseyorima",
+    "eloiseforuta", "eloisecamita", "eloisepinava", "eloiselamiros", "eloisevonyda",
+    "eloiseyavara", "eloisemurkia", "eloisekalida", "eloisepazoma", "eloisefuzira",
+    "eloisesaruta", "eloisetyroma", "eloisenibaka", "eloisevakota", "eloiselubika",
+    "eloisenokira", "eloisefratoma", "eloisepilyna", "pauline"
+  ]
+};
 
 /**
  * Génère un hash simple à partir d'une chaîne pour la randomisation
