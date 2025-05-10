@@ -1,4 +1,14 @@
-import config from '../config.json' assert { type: "json" };
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
+
+// Obtenir le chemin du répertoire actuel
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Charger le fichier JSON manuellement
+const configPath = resolve(__dirname, '../config.json');
+const config = JSON.parse(readFileSync(configPath, 'utf-8'));
 
 // Liste de prénoms féminins français pour générer des profils aléatoires
 const prenoms = [

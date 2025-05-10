@@ -40,7 +40,7 @@
         "description": uniqueContent.description,
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": `https://monclubprivee.com/${slug}`
+          "@id": `https://eloiseprofil.com/${slug}`
         }
       })}
     </script>

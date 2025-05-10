@@ -1,7 +1,9 @@
-import { redirect } from '@sveltejs/kit';
+import { profiles } from '$lib/profiles.js';
 
 /** @type {import('./$types').PageServerLoad} */
 export function load() {
-  // Rediriger vers le profil par défaut
-  throw redirect(302, '/pauline');
+  // Récupérer tous les profils pour la page d'accueil
+  return {
+    profiles
+  };
 }
