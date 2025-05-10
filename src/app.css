@@ -1,0 +1,93 @@
+/* Styles globaux */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Styles pour les carrousels */
+.testimonial-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.testimonial-scroll::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.testimonial-scroll > div {
+  scroll-snap-align: center;
+}
+
+/* Styles pour le contenu des robots */
+.bot-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.seo-keywords {
+  display: none;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Raloud", sans-serif !important;
+  background: #f8edfd;
+  background-attachment: fixed;
+  color: #0f172a;
+}
+
+@font-face {
+  font-family: "Raloud";
+  src: url("../fonts/euclid-bold.woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Raloud";
+  src: url("../fonts/euclid-semibold.woff2");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Raloud";
+  src: url("../fonts/euclid-regular.woff2");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Raloud";
+  src: url("../fonts/euclid-light.woff2");
+  font-weight: 300;
+}
