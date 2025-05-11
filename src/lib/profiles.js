@@ -33,13 +33,15 @@ const prenoms = [
   "Éloise", "Eloise", "Eloy", "Elo"
 ];
 
-// Liste de professions pour générer des profils aléatoires
+// Liste de professions pour générer des profils aléatoires adaptées aux 20-24 ans
 const professions = [
-  "Infirmière", "Étudiante", "Professeure", "Médecin", "Avocate", "Architecte",
-  "Designer", "Photographe", "Artiste", "Ingénieure", "Développeuse", "Consultante",
-  "Psychologue", "Pharmacienne", "Journaliste", "Vétérinaire", "Comptable", "Chef d'entreprise",
-  "Commerciale", "Assistante", "Graphiste", "Kinésithérapeute", "Nutritionniste", "Dentiste",
-  "Styliste", "Décoratrice", "Hôtesse de l'air", "Traductrice", "Musicienne", "Danseuse"
+  "Étudiante en droit", "Étudiante en médecine", "Étudiante en psychologie", "Étudiante en commerce",
+  "Étudiante en arts", "Étudiante en communication", "Étudiante en langues", "Étudiante en informatique",
+  "Étudiante en marketing", "Étudiante en biologie", "Étudiante en design", "Étudiante en journalisme",
+  "Serveuse", "Barista", "Vendeuse", "Hôtesse d'accueil", "Assistante de vente", "Réceptionniste",
+  "Influenceuse", "Créatrice de contenu", "Mannequin", "Danseuse", "Chanteuse", "Artiste",
+  "Assistante administrative", "Aide-soignante", "Infirmière stagiaire", "Auxiliaire de vie",
+  "Animatrice", "Professeure de fitness", "Coiffeuse", "Esthéticienne", "Maquilleuse", "Photographe"
 ];
 
 /**
@@ -68,8 +70,8 @@ function generateProfile(pseudo) {
   // Générer un prénom aléatoire basé sur le seed
   const prenom = prenoms[seed % prenoms.length];
 
-  // Générer un âge aléatoire entre 20 et 35 ans
-  const age = 20 + (seed % 16);
+  // Générer un âge aléatoire entre 20 et 24 ans
+  const age = 20 + (seed % 5);
 
   // Générer une profession aléatoire
   const profession = professions[seed % professions.length];
