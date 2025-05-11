@@ -17,10 +17,10 @@ export function generateUniqueContent(slug, profile) {
   const content = generateParagraphs(profile, seed);
 
   // Générer un titre unique
-  const title = generateTitle(profile, seed);
+  const title = generateTitle(profile, seed, slug);
 
   // Générer une description unique
-  const description = generateDescription(profile, seed);
+  const description = generateDescription(profile, seed, slug);
 
   // Générer des mots-clés uniques
   const keywords = generateKeywords(profile, seed);
@@ -267,41 +267,41 @@ function selectRandom(array, seed) {
  * Génère un titre unique pour le profil
  * @param {object} profile - Les données du profil
  * @param {number} seed - La valeur seed
+ * @param {string} slug - Le slug de la page
  * @returns {string} - Le titre généré
  */
-function generateTitle(profile, seed) {
+function generateTitle(profile, seed, slug) {
   const titleTemplates = [
-    `${profile.prenom} - Rencontre et chat privé`,
-    `Page personnelle de ${profile.prenom} | ${profile.age} ans`,
-    `${profile.prenom}, ${profile.age} ans - Profil de rencontre`,
-    `Discuter avec ${profile.prenom} - Profil privé`,
-    `${profile.prenom} - ${profile.profession} de ${profile.age} ans`,
-    `Profil de ${profile.prenom} | Chat et photos privées`,
-    `${profile.prenom} - Disponible pour discuter maintenant`,
-    `Rencontrer ${profile.prenom}, ${profile.profession} de ${profile.age} ans`,
-    `${profile.prenom} ${profile.age} ans - Échange de messages privés`,
-    `Profil vérifié de ${profile.prenom} - ${profile.profession}`,
-    `${profile.prenom} - Rencontres et discussions en ligne`,
-    `Chat privé avec ${profile.prenom}, ${profile.age} ans`,
-    `${profile.prenom} - Profil personnel et photos privées`,
-    `Découvrir ${profile.prenom}, ${profile.profession} de ${profile.age} ans`,
-    `${profile.prenom} - Messagerie instantanée et rencontres`,
-    `Profil exclusif de ${profile.prenom} | ${profile.age} ans`,
-    `${profile.prenom} - Disponible pour chat et rencontres`,
-    `Rencontrer ${profile.prenom} - Profil authentique`,
-    `${profile.prenom}, ${profile.age} ans - Échanges et rencontres`,
-    `Profil de ${profile.prenom} - Photos et chat privé`,
-    `${profile.prenom} - Messagerie privée et rencontres`,
-    `${profile.prenom}, ${profile.profession} - Profil vérifié`,
-    `Chat avec ${profile.prenom} - Profil personnel`,
-    `${profile.prenom} ${profile.age} ans - Rencontres locales`,
-    `Profil et photos de ${profile.prenom} - Chat privé`,
-    `${profile.prenom} - Discussions et rencontres`,
-    `${profile.prenom}, ${profile.profession} - Disponible maintenant`,
-    `Rencontrer ${profile.prenom} ${profile.age} ans - Profil vérifié`,
-    `${profile.prenom} - Échanges authentiques et rencontres`,
-    `Profil privé de ${profile.prenom} - ${profile.profession}`,
-
+    `${slug} - Rencontre et chat privé`,
+    `Page personnelle de ${slug} | ${profile.age} ans`,
+    `${slug}, ${profile.age} ans - Profil de rencontre`,
+    `Discuter avec ${slug} - Profil privé`,
+    `${slug} - ${profile.profession} de ${profile.age} ans`,
+    `Profil de ${slug} | Chat et photos privées`,
+    `${slug} - Disponible pour discuter maintenant`,
+    `Rencontrer ${slug}, ${profile.profession} de ${profile.age} ans`,
+    `${slug} ${profile.age} ans - Échange de messages privés`,
+    `Profil vérifié de ${slug} - ${profile.profession}`,
+    `${slug} - Rencontres et discussions en ligne`,
+    `Chat privé avec ${slug}, ${profile.age} ans`,
+    `${slug} - Profil personnel et photos privées`,
+    `Découvrir ${slug}, ${profile.profession} de ${profile.age} ans`,
+    `${slug} - Messagerie instantanée et rencontres`,
+    `Profil exclusif de ${slug} | ${profile.age} ans`,
+    `${slug} - Disponible pour chat et rencontres`,
+    `Rencontrer ${slug} - Profil authentique`,
+    `${slug}, ${profile.age} ans - Échanges et rencontres`,
+    `Profil de ${slug} - Photos et chat privé`,
+    `${slug} - Messagerie privée et rencontres`,
+    `${slug}, ${profile.profession} - Profil vérifié`,
+    `Chat avec ${slug} - Profil personnel`,
+    `${slug} ${profile.age} ans - Rencontres locales`,
+    `Profil et photos de ${slug} - Chat privé`,
+    `${slug} - Discussions et rencontres`,
+    `${slug}, ${profile.profession} - Disponible maintenant`,
+    `Rencontrer ${slug} ${profile.age} ans - Profil vérifié`,
+    `${slug} - Échanges authentiques et rencontres`,
+    `Profil privé de ${slug} - ${profile.profession}`,
   ];
 
   return selectRandom(titleTemplates, seed);
@@ -311,40 +311,41 @@ function generateTitle(profile, seed) {
  * Génère une description unique pour le profil
  * @param {object} profile - Les données du profil
  * @param {number} seed - La valeur seed
+ * @param {string} slug - Le slug de la page
  * @returns {string} - La description générée
  */
-function generateDescription(profile, seed) {
+function generateDescription(profile, seed, slug) {
   const descTemplates = [
-    `Découvrez le profil de ${profile.prenom}, ${profile.profession} de ${profile.age} ans. Consultez ses photos et discutez en privé.`,
-    `${profile.prenom}, ${profile.age} ans, cherche à faire des rencontres. Profil authentique avec photos vérifiées.`,
-    `Page personnelle de ${profile.prenom}, ${profile.profession}. Discutez en privé et découvrez ses photos exclusives.`,
-    `${profile.prenom}, ${profile.age} ans, partage son quotidien et ses photos. Profil vérifié disponible pour discuter.`,
-    `Rencontrez ${profile.prenom}, une ${profile.profession} de ${profile.age} ans qui répond généralement en quelques minutes.`,
-    `Bienvenue sur le profil de ${profile.prenom}, ${profile.age} ans, ${profile.profession} passionnée à la recherche de nouvelles rencontres.`,
-    `${profile.prenom} partage ici ses photos et ses centres d'intérêt. Profil vérifié, ${profile.age} ans, disponible pour discuter.`,
-    `Découvrez ${profile.prenom}, ${profile.profession} de ${profile.age} ans qui aime partager et échanger. Photos et chat privé disponibles.`,
-    `Profil authentique de ${profile.prenom}, ${profile.age} ans. Échangez en privé et découvrez ses photos exclusives.`,
-    `${profile.prenom}, ${profile.profession} de ${profile.age} ans, cherche à faire de nouvelles rencontres. Profil vérifié avec photos.`,
-    `Page privée de ${profile.prenom}, ${profile.age} ans. Discutez en toute confidentialité et découvrez son quotidien en photos.`,
-    `Rencontrez ${profile.prenom}, ${profile.profession} passionnée de ${profile.age} ans. Profil vérifié avec messagerie instantanée.`,
-    `${profile.prenom}, ${profile.age} ans, partage ici son univers et ses photos. Disponible pour discuter et faire connaissance.`,
-    `Profil personnel de ${profile.prenom}, ${profile.profession} de ${profile.age} ans. Photos vérifiées et chat privé disponibles.`,
-    `Découvrez le quotidien de ${profile.prenom}, ${profile.age} ans, à travers ses photos et échangez en privé.`,
-    `${profile.prenom}, ${profile.profession} de ${profile.age} ans, à la recherche de nouvelles connexions. Profil authentique et vérifié.`,
-    `Page exclusive de ${profile.prenom}, ${profile.age} ans. Partagez des moments privilégiés et découvrez ses photos privées.`,
-    `Profil vérifié de ${profile.prenom}, ${profile.profession} de ${profile.age} ans. Messagerie instantanée et photos disponibles.`,
-    `${profile.prenom}, ${profile.age} ans, ouvre les portes de son univers. Discutez en privé et découvrez ses photos exclusives.`,
-    `Rencontrez ${profile.prenom}, une ${profile.profession} authentique de ${profile.age} ans. Profil vérifié avec photos et chat privé.`,
-    `${profile.prenom} partage son quotidien et ses passions. ${profile.age} ans, ${profile.profession}, disponible pour échanger.`,
-    `Profil personnel de ${profile.prenom}, ${profile.age} ans. Découvrez ses photos et engagez la conversation en privé.`,
-    `${profile.prenom}, ${profile.profession} de ${profile.age} ans, à la recherche de nouvelles rencontres. Profil vérifié et authentique.`,
-    `Page privée de ${profile.prenom}, ${profile.age} ans. Échangez des messages et découvrez ses photos exclusives.`,
-    `Découvrez ${profile.prenom}, ${profile.profession} passionnée de ${profile.age} ans. Chat privé et photos disponibles.`,
-    `${profile.prenom}, ${profile.age} ans, partage ici ses centres d'intérêt et ses photos. Profil vérifié, disponible pour discuter.`,
-    `Profil authentique de ${profile.prenom}, ${profile.profession} de ${profile.age} ans. Messagerie privée et photos exclusives.`,
-    `Rencontrez ${profile.prenom}, ${profile.age} ans, et découvrez son univers à travers ses photos et conversations privées.`,
-    `${profile.prenom}, ${profile.profession} de ${profile.age} ans, cherche à faire de nouvelles connaissances. Profil vérifié avec photos.`,
-    `Page personnelle de ${profile.prenom}, ${profile.age} ans. Discutez en toute confidentialité et découvrez ses photos privées.`
+    `Découvrez le profil de ${slug}, ${profile.profession} de ${profile.age} ans. Consultez ses photos et discutez en privé.`,
+    `${slug}, ${profile.age} ans, cherche à faire des rencontres. Profil authentique avec photos vérifiées.`,
+    `Page personnelle de ${slug}, ${profile.profession}. Discutez en privé et découvrez ses photos exclusives.`,
+    `${slug}, ${profile.age} ans, partage son quotidien et ses photos. Profil vérifié disponible pour discuter.`,
+    `Rencontrez ${slug}, une ${profile.profession} de ${profile.age} ans qui répond généralement en quelques minutes.`,
+    `Bienvenue sur le profil de ${slug}, ${profile.age} ans, ${profile.profession} passionnée à la recherche de nouvelles rencontres.`,
+    `${slug} partage ici ses photos et ses centres d'intérêt. Profil vérifié, ${profile.age} ans, disponible pour discuter.`,
+    `Découvrez ${slug}, ${profile.profession} de ${profile.age} ans qui aime partager et échanger. Photos et chat privé disponibles.`,
+    `Profil authentique de ${slug}, ${profile.age} ans. Échangez en privé et découvrez ses photos exclusives.`,
+    `${slug}, ${profile.profession} de ${profile.age} ans, cherche à faire de nouvelles rencontres. Profil vérifié avec photos.`,
+    `Page privée de ${slug}, ${profile.age} ans. Discutez en toute confidentialité et découvrez son quotidien en photos.`,
+    `Rencontrez ${slug}, ${profile.profession} passionnée de ${profile.age} ans. Profil vérifié avec messagerie instantanée.`,
+    `${slug}, ${profile.age} ans, partage ici son univers et ses photos. Disponible pour discuter et faire connaissance.`,
+    `Profil personnel de ${slug}, ${profile.profession} de ${profile.age} ans. Photos vérifiées et chat privé disponibles.`,
+    `Découvrez le quotidien de ${slug}, ${profile.age} ans, à travers ses photos et échangez en privé.`,
+    `${slug}, ${profile.profession} de ${profile.age} ans, à la recherche de nouvelles connexions. Profil authentique et vérifié.`,
+    `Page exclusive de ${slug}, ${profile.age} ans. Partagez des moments privilégiés et découvrez ses photos privées.`,
+    `Profil vérifié de ${slug}, ${profile.profession} de ${profile.age} ans. Messagerie instantanée et photos disponibles.`,
+    `${slug}, ${profile.age} ans, ouvre les portes de son univers. Discutez en privé et découvrez ses photos exclusives.`,
+    `Rencontrez ${slug}, une ${profile.profession} authentique de ${profile.age} ans. Profil vérifié avec photos et chat privé.`,
+    `${slug} partage son quotidien et ses passions. ${profile.age} ans, ${profile.profession}, disponible pour échanger.`,
+    `Profil personnel de ${slug}, ${profile.age} ans. Découvrez ses photos et engagez la conversation en privé.`,
+    `${slug}, ${profile.profession} de ${profile.age} ans, à la recherche de nouvelles rencontres. Profil vérifié et authentique.`,
+    `Page privée de ${slug}, ${profile.age} ans. Échangez des messages et découvrez ses photos exclusives.`,
+    `Découvrez ${slug}, ${profile.profession} passionnée de ${profile.age} ans. Chat privé et photos disponibles.`,
+    `${slug}, ${profile.age} ans, partage ici ses centres d'intérêt et ses photos. Profil vérifié, disponible pour discuter.`,
+    `Profil authentique de ${slug}, ${profile.profession} de ${profile.age} ans. Messagerie privée et photos exclusives.`,
+    `Rencontrez ${slug}, ${profile.age} ans, et découvrez son univers à travers ses photos et conversations privées.`,
+    `${slug}, ${profile.profession} de ${profile.age} ans, cherche à faire de nouvelles connaissances. Profil vérifié avec photos.`,
+    `Page personnelle de ${slug}, ${profile.age} ans. Discutez en toute confidentialité et découvrez ses photos privées.`
   ];
 
   return selectRandom(descTemplates, seed);

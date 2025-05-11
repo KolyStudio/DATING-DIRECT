@@ -34,7 +34,7 @@
       {JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Person",
-        "name": profile.prenom,
+        "name": slug,
         "image": uniqueContent.images.profileImage,
         "jobTitle": profile.profession,
         "description": uniqueContent.description,
@@ -56,12 +56,12 @@
       <div class="profile-info flex items-center mb-6">
         <img
           src={uniqueContent.images.profileImage}
-          alt={`Photo de profil de ${profile.prenom}`}
+          alt={`Photo de profil de ${slug}`}
           class="w-24 h-24 rounded-full mr-4 object-cover"
         />
         <div>
           <h2 class="text-xl font-semibold">
-            {profile.prenom}, {profile.age} ans
+            {slug}, {profile.age} ans
           </h2>
           <p class="text-gray-600">{profile.profession}</p>
           <div class="mt-2 text-sm text-gray-500">
@@ -132,7 +132,7 @@
         <figure>
           <img
             src={uniqueContent.images.profileImage}
-            alt={`Photo de profil de ${profile.prenom}`}
+            alt={`Photo de profil de ${slug}`}
             class="w-full h-auto rounded-lg shadow-md"
           />
           <figcaption class="text-sm text-center mt-2">
@@ -142,7 +142,7 @@
         <figure>
           <img
             src={uniqueContent.images.lifestyleImage}
-            alt={`Photo lifestyle de ${profile.prenom}`}
+            alt={`Photo lifestyle de ${slug}`}
             class="w-full h-auto rounded-lg shadow-md"
           />
           <figcaption class="text-sm text-center mt-2">
@@ -156,7 +156,7 @@
           <figure>
             <img
               src={galleryImage}
-              alt={`Photo ${index + 1} de la galerie de ${profile.prenom}`}
+              alt={`Photo ${index + 1} de la galerie de ${slug}`}
               class="w-full h-auto rounded-lg shadow-md"
             />
             <figcaption class="text-sm text-center mt-1">

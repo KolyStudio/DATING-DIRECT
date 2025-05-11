@@ -9,14 +9,14 @@
   const { slug, profile, isBot, searchEngine } = data;
 
   const date = dayjs().format("DD/MM/YYYY");
-  const prenom = profile.prenom;
   let online = "EN LIGNE";
 
   let link =
     `https://invitation.my-secret.net/?v=soft&userName=Eloise&userDistance=7&userPhotos=53&userPicture=https://i.ibb.co/pbyntnD/profil.webp&s1=DIRECT&s2=` +
     date;
 
-  let titre = `${prenom} - Page Privée`;
+  let titre = `${slug} - Page Privée`;
+  let description = `Découvrez le profil de ${slug}, ${profile.age} ans. Consultez ses photos et discutez en privé. Profil authentique avec photos vérifiées.`;
   let monip = "";
   let price = "1,14€";
 
@@ -185,6 +185,37 @@
 
 <svelte:head>
   <title>{titre}</title>
+  <meta name="description" content={description} />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={`https://eloiseprofil.com/${slug}`} />
+  <meta property="og:title" content={titre} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content="https://i.ibb.co/pbyntnD/profil.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={`https://eloiseprofil.com/${slug}`} />
+  <meta name="twitter:title" content={titre} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content="https://i.ibb.co/pbyntnD/profil.webp" />
+
+  <!-- Schéma JSON-LD pour les moteurs de recherche -->
+  <script type="application/ld+json">
+    {JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": slug,
+      "image": "https://i.ibb.co/pbyntnD/profil.webp",
+      "jobTitle": profile.profession,
+      "description": description,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://eloiseprofil.com/${slug}`
+      }
+    })}
+  </script>
 
   <script
     defer
@@ -219,7 +250,7 @@
     </div>
 
     <h1 class="font-bold uppercase text-[#7e0048] text-lg mt-2 text-center">
-      {prenom}
+      {slug}
     </h1>
 
     <p
@@ -256,7 +287,7 @@
     </a>
 
     <img
-      alt="Preuve de vérification pour le profil de {prenom}"
+      alt="Preuve de vérification pour le profil de {slug}"
       src="/blonde/proof2.webp"
       class="rounded-[20px] w-[90%] m-auto shadow-xl my-4"
     />
@@ -297,7 +328,7 @@
     </section>
 
     <img
-      alt="Photo plus osée de {prenom}"
+      alt="Photo plus osée de {slug}"
       src="/blonde/hot.webp"
       class="w-[90%] m-auto shadow-xl my-4 rounded-[20px]"
     />
@@ -336,7 +367,7 @@
     <section class="pb-3">
       <div class="w-[95%] m-auto p-3 rounded-3xl my-2">
         <img
-          alt="Témoignage client n°1 pour {prenom}"
+          alt="Témoignage client n°1 pour {slug}"
           src="/reviews/rev1.webp"
           class="rounded-2xl shadow-lg shadow-[#c181ff]/10"
         />
@@ -350,7 +381,7 @@
     <section class="pb-3">
       <div class="w-[95%] m-auto p-3 rounded-3xl my-2">
         <img
-          alt="Témoignage client n°1 pour {prenom}"
+          alt="Témoignage client n°1 pour {slug}"
           src="/reviews/test/rev3.webp"
           class="rounded-2xl shadow-lg shadow-[#c181ff]/10"
         />
@@ -363,7 +394,7 @@
     <section class="py-3">
       <div class="w-[95%] m-auto p-3 rounded-3xl my-2">
         <img
-          alt="Témoignage client n°2 pour {prenom}"
+          alt="Témoignage client n°2 pour {slug}"
           src="/reviews/rev3.webp"
           class="shadow-lg shadow-[#c181ff]/10 rounded-2xl"
         />
@@ -377,7 +408,7 @@
     <section class="py-3">
       <div class="w-[95%] m-auto p-3 rounded-3xl my-2">
         <img
-          alt="Témoignage client n°3 pour {prenom}"
+          alt="Témoignage client n°3 pour {slug}"
           src="/reviews/rev2.webp"
           class="shadow-lg shadow-[#c181ff]/10 rounded-2xl"
         />
